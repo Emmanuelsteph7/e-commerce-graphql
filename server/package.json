@@ -4,6 +4,9 @@
   "main": "server.js",
   "author": "Emmanuel Stephen",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server"
+  },
   "dependencies": {
     "apollo-server": "^3.6.3",
     "graphql": "^16.3.0"

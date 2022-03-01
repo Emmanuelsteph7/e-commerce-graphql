@@ -1,0 +1,47 @@
+Docs
+
+There are two types that can be returned in graphQl
+1, Scalar types
+2, Object types
+
+Scalar types
+String - "Hello"
+Int - 4
+Float - numbers with decimals, 4.5
+Boolean - true, false
+
+by default, when a query type is declared eg, hello: String, it is the same as String or null.
+to make it absolutely String, attach an exclamation mark to it. hello: String!.
+
+to return an array
+[String] - array of strings
+[Int] - array of integers
+and so on
+
+for nullable values
+hello: [String] - same as [String] or null
+hello: [String!] - it will ensure that the values of the array isn't null. but the hello itself can return null
+hello: [String!]! - this will ensure no null value. it can return an empty array
+
+Object types
+an object type is an object that have properties with scalar types. the properties too can have object types.
+
+type Product {
+    name: String!
+    description: String!
+    quantity: Int!
+    price: Float!
+    onSale: Boolean!
+}
+
+to add a variable to a type definition,
+product(id: String!): Product
+product(id: ID!): Product
+
+the two will work but it is better to use ID instead.
+
+creating a resolver
+product: (parent, args, context) => {},
+
+the args argument contains the variables passed in the product type.
+this is how we get the variables
